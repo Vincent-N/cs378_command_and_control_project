@@ -9,7 +9,7 @@ Currently implements:
 
 ### Configure IP (IMPORTANT)
 
-Edit the IP addresses in the __config.py__ file to match the IP address of the attacker and target machine. Can also set which port number the attacker machine will use to listen.
+Edit the IP addresses in the **_config.py_** file to match the IP address of the attacker and target machine. Can also set which port number the attacker machine will use to listen.
 
 ### Creating executables
 
@@ -20,22 +20,22 @@ and another file named 'backdoor' should be created.
 
 Place the 'backdoor' executable in the /bin directory of the target machine.
 
-Run _chmod +x backdoor_ to give execute permissions.
+Run **_chmod +x backdoor_** to give execute permissions.
 
-Run the command _sudo crontab -e_
+Run the command **_sudo crontab -e_**
 
-Scroll to the bottom (after all #) and add the line: _@reboot python /bin/backdoor &_
+Scroll to the bottom (after all #) and add the line: **_@reboot python /bin/backdoor &_**
 
-Reboot the system (_sudo reboot_), cronjob should run every restart. Backdoor should call out
-to attacker machine every 10 seconds (can edit this amount of time in __config.py__).
+Reboot the system (**_sudo reboot_**), cronjob should run every restart. Backdoor should call out
+to attacker machine every 10 seconds (can edit this amount of time in **_config.py_**).
 
 ### Setting Up and Running Attacker
 
 Place the 'attacker' executable on the attack machine.
 
-Run _chmod +x attacker_ to give execute permissions.
+Run **_chmod +x attacker_** to give execute permissions.
 
-Run ./attacker in the command line to run the file and wait for the connection to be initiated by the target machine.
+Run **_./attacker_** in the command line to run the file and wait for the connection to be initiated by the target machine.
 
 Once connection is made, we should be running as the root user and are in root's directory (at least when testing on Kali machine as target)
 
@@ -46,5 +46,5 @@ Once connection is made, we should be running as the root user and are in root's
 * Maybe figure out how to fix remote shell (or maybe ask Dr. Hintz if what we have is okay)
 * Detection script (extra credit, but maybe not that hard?)
 * Sometimes connection breaks in certain situations, fix these bugs
-  * like when running _cat /bin/ls_ Looks like something is wrong with trying to encode/decode the characters in the file
+  * like when running **_cat /bin/ls_** Looks like something is wrong with trying to encode/decode the characters in the file
 
