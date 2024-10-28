@@ -19,11 +19,21 @@ def main():
 
             # simulate remote shell
             while True:
-                user_input = input('Target Machine Shell> ') # ask user to input a command
-                client_socket.send(user_input) # send our command
-                command_output = client_socket.receive() # get output from our command
+                prompt = client_socket.receive()
+                print(prompt)
+
+                user_input = input()
+                client_socket.send(user_input)
+
+                command_output = client_socket.receive()
                 print(command_output)
-                print()
+
+
+                # user_input = input('Target Machine Shell> ') # ask user to input a command
+                # client_socket.send(user_input) # send our command
+                # command_output = client_socket.receive() # get output from our command
+                # print(command_output)
+                # print()
 
 if __name__ == '__main__':
     main()

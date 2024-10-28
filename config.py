@@ -9,9 +9,9 @@ PORT_NUMBER = 4321 # port used by server machine
 
 # Message length constants (minimum and maximum allowed message size to be sent between the machines)
 MIN_MESSAGE_LENGTH = 16
-MAX_MESSAGE_LENGTH = 2**18 # Increase if too small (# TODO: some connection breaking errors probably related to this)
+MAX_MESSAGE_LENGTH = 2**24 # Increase if too small (# TODO: some connection breaking errors probably related to this)
 
-# list of allowed message lengths (please only input up to 9 sizes)
+# list of allowed message lengths (please only input up to 10 sizes)
 fixed_message_length_list = [MIN_MESSAGE_LENGTH, 32, 64, 128, 256, 512, 1024, 2048, 4096, MAX_MESSAGE_LENGTH]
 
 # Symmetric Key
@@ -22,6 +22,10 @@ SLEEP_TIME = 10 # number of seconds target machine will wait between making call
 
 
 # !!!--- LEAVE BELOW ALONE ---!!!
+
+TARGET_SHELL_PROMPT_REGEX_LIST = ['\][\s\S]*\$', '\[.+@.+ [\s\S]+\][#\$]', 'Are you sure you want to continue connecting (yes/no)?', '.+@.+ password:', '\[sudo\] password for .+:']
+
+# [\u@\h \W]\$
 
 # This creates a dict where the keys are the indices and the values are the message length that corresponds to that index. The type of the keys are characters instead of ints
 message_type_to_length = dict((str(k), v) for k, v in enumerate(fixed_message_length_list))
