@@ -61,6 +61,7 @@ Once connection is made, we should be running as the root user and are in root's
 
 * Evading detection
 * Write-up
+* Need to fix the prompt format being sent over
 * Maybe figure out how to fix remote shell (or maybe ask Dr. Hintz if what we have is okay)
 * Detection script (extra credit, but maybe not that hard?)
 * Sometimes connection breaks in certain situations, fix these bugs
