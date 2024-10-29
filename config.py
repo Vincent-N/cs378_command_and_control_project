@@ -7,11 +7,11 @@ ATTACKER_IP = '10.0.2.4'
 PORT_NUMBER = 4321 # port used by server machine 
 
 # Message length constants (minimum and maximum allowed message size to be sent between the machines)
-MIN_MESSAGE_LENGTH = 16
+MIN_MESSAGE_LENGTH = 128 # smallest message size sent from my testing
 MAX_MESSAGE_LENGTH = 2**24 # Increase if too small (# TODO: some connection breaking errors probably related to this)
 
-# list of allowed message lengths (please only input up to 10 sizes)
-fixed_message_length_list = [MIN_MESSAGE_LENGTH, 32, 64, 128, 256, 512, 1024, 2048, 4096, MAX_MESSAGE_LENGTH]
+# list of allowed message lengths (please only input up to 10 sizes in ascending order)
+fixed_message_length_list = [MIN_MESSAGE_LENGTH, 256, 512, 1024, 2048, 4096, 8192, 2**15, 2**18, MAX_MESSAGE_LENGTH]
 
 # Symmetric Key
 SYMMETRIC_KEY = b'NWUn3HPURE16A6nrJaGqxyGi21TK5Bvgx3VEroafa94=' # generated using Fernet.generate_key() (from cryptography.fernet import Fernet)
