@@ -23,7 +23,7 @@ SLEEP_TIME = 10 # number of seconds target machine will wait between making call
 
 # !!!--- LEAVE BELOW ALONE ---!!!
 
-TARGET_SHELL_PROMPT_REGEX_LIST = ['\][\s\S]*\$', '\[.+@.+ [\s\S]+\][#]', 'Are you sure you want to continue connecting (yes/no)?', '.+@.+ password:', '\[sudo\] password for .+:']
+TARGET_SHELL_PROMPT_REGEX_LIST = ['\][\s\S]*\$', '\[.+@.+ [\s\S]+\][#]', 'The authenticity of host [\s\S]+Are you sure you want to continue connecting \(yes/no\)\?', '.+@.+ password:', '\[sudo\] password for .+:']
 
 # [\u@\h \W]\$
 
