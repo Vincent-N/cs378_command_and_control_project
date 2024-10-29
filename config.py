@@ -4,7 +4,6 @@
 
 # CONFIGURE THESE VALUES TO FIT IPS
 ATTACKER_IP = '10.0.2.4'
-TARGET_IP = '10.0.2.8' 
 PORT_NUMBER = 4321 # port used by server machine 
 
 # Message length constants (minimum and maximum allowed message size to be sent between the machines)
