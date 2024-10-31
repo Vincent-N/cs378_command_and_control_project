@@ -29,12 +29,15 @@ def calc_padded_message_size(message):
 
 # Helper function that pads message to appropriate length, adds length indicator to start, and encrypts the message
 def prep_message_to_send(message):
-    message = Fernet(SYMMETRIC_KEY).encrypt(message.encode('utf-8')).decode('utf-8') # encrypt the message with symmetric key for authentification (only the message is encrypted, not the message length indicator)
+    message = Fernet(SYMMETRIC_KEY).encrypt(message.encode('utf-8', 'backslashreplace')).decode('utf-8') # encrypt the message with symmetric key for authentification (only the message is encrypted, not the message length indicator)
 
     final_message_length, num_spaces_to_add = calc_padded_message_size(message)
 
     # construct the final message string by adding type indicator, message, and padding end with spaces
     final_message = message_length_to_type[final_message_length] + message + (' ' * num_spaces_to_add)
+    # debug messages
+    # print('final message length is:', final_message_length)
+    # print('type indicator is:', message_length_to_type[final_message_length])
 
 
     assert(len(final_message) == final_message_length) # TODO: debugging, get rid of later 
@@ -100,5 +103,5 @@ class Socket:
         final_message_encrypted = final_message_encrypted.strip() # get rid of the spaces we added for padding
         final_message_decrypted = Fernet(SYMMETRIC_KEY).decrypt(final_message_encrypted) # decrypt using symmetric key for authentification
 
-        return final_message_decrypted.decode('utf-8') # convert final result back to normal string version
+        return final_message_decrypted.decode('utf-8', 'backslashreplace') # convert final result back to normal string version
 
