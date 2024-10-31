@@ -57,6 +57,22 @@ Run **_./attacker_** in the command line to run the file and wait for the connec
 
 Once connection is made, we should be running as the root user and are in root's directory (at least when testing on Kali machine as target)
 
+### Evading Detection
+
+In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine at **_/usr/bin/ls_custom__**.
+
+Give **_ls_custom_** executing privileges by running: **_chmod 755 /usr/bin/ls_custom_**
+
+Run **_echo "alias ls='/usr/bin/ls_custom'" >> /etc/profile_** followed by **_source /etc/profile_** to reload the shell and apply these changes. The **_source_** call isn't necessary as the next time there is a login to the shell, the updated code will run. This just allows you to test the code without having to log out and back in. 
+
+Now, whenever **_ls_** is run, the wrapper should run instead of the original binary.
+
+### BONUS: Detection Script
+
+In the evasion_and_detection folder, there is an **_detect.py_** file. To run it, put it into the target machine and execute it using the following command: **_python3 detect.py_**.
+
+There is a customization option within the python file, which is what files to look in when searching for aliases. We've included several start-up files to search within, one of which actually contains the alias we used to execute the ls wrapper. However, the list of files can easily be modified to better suit your needs.
+
 ## Still Need to Work On:
 
 * Evading detection
