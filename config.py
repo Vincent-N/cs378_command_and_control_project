@@ -8,10 +8,11 @@ PORT_NUMBER = 4321 # port used by server machine
 
 # Message length constants (minimum and maximum allowed message size to be sent between the machines)
 MIN_MESSAGE_LENGTH = 128 # smallest message size sent from my testing
-MAX_MESSAGE_LENGTH = 2**24 # Increase if too small (# TODO: some connection breaking errors probably related to this)
+MAX_MESSAGE_LENGTH = 2**24 # Increase if too small 
 
-# amount of time that the backdoor waits for a command to finish executing
-COMMAND_TIMEOUT = 120
+# amount of time that the expect function in pexpect library will attempt to look for a string matching a pattern in TARGET_SHELL_PROMPT_REGEX_LIST
+# pexcept parses super large outputs very slowly, so if connection is breaking when attempting to print some large output, increase this value (this will give expect more time to go through the large output)
+EXPECT_TIMEOUT = 120 # time in seconds
 
 # list of allowed message lengths (please only input up to 10 sizes in ascending order)
 fixed_message_length_list = [MIN_MESSAGE_LENGTH, 256, 512, 1024, 2048, 4096, 8192, 2**15, 2**18, MAX_MESSAGE_LENGTH]
