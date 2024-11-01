@@ -17,7 +17,7 @@ This must be done for the configured IP to work.
 
 #### Installing necessary packages (on week 4)
 
-Run the following commands:
+Run the following commands as root on the week 4 machine:
 
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 
