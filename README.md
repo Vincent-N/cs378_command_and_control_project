@@ -76,7 +76,7 @@ Run **_chmod +x attacker_** to give execute permissions.
 
 Run **_./attacker_** in the command line to run the file and wait for the connection to be initiated by the target machine.
 
-Once connection is made, we should be running as the root user and are in root's directory (at least when testing on Kali machine as target)
+Once connection is made, we should be running as the root user and we are initially placed in root's directory
 
 ### BONUS: Detection Script
 
