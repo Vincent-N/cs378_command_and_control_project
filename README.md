@@ -6,10 +6,12 @@
 
 Edit the IP addresses in the **_config.py_** file to match the IP address of the attacker and target machine. Can also set which port number the attacker machine will use to listen.
 
-### Creating executables
+### Creating executables (IMPORTANT)
 
 To create the attacker and backdoor executable things, run the make file. One file named 'attacker'
 and another file named 'backdoor' should be created.
+
+This must be done for the configured IP to work.
 
 ### Setting Up and Running Backdoor 
 
