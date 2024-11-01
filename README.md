@@ -44,16 +44,6 @@ Scroll to the bottom (after all #) and add the line: **_@reboot python3 /bin/bac
 Reboot the system (**_sudo reboot_**), cronjob should run every restart. Backdoor should call out
 to attacker machine every 10 seconds (can edit this amount of time in **_config.py_**).
 
-### Setting Up and Running Attacker
-
-Place the 'attacker' executable on the attack machine.
-
-Run **_chmod +x attacker_** to give execute permissions.
-
-Run **_./attacker_** in the command line to run the file and wait for the connection to be initiated by the target machine.
-
-Once connection is made, we should be running as the root user and are in root's directory (at least when testing on Kali machine as target)
-
 ### Evading Detection
 
 #### ls
@@ -75,6 +65,16 @@ Create a directory named **_orig_** in the **_/bin_** directory.
 Place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
 
 Rename the ***fake_ps*** file to **_ps_**
+
+### Setting Up and Running Attacker
+
+Place the 'attacker' executable on the attack machine.
+
+Run **_chmod +x attacker_** to give execute permissions.
+
+Run **_./attacker_** in the command line to run the file and wait for the connection to be initiated by the target machine.
+
+Once connection is made, we should be running as the root user and are in root's directory (at least when testing on Kali machine as target)
 
 ### BONUS: Detection Script
 
