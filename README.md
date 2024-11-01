@@ -60,13 +60,13 @@ Now, whenever **_ls_** is run, the wrapper should run instead of the original bi
 
 Place the ***fake_ps*** file found in the evasion_and_detection folder into the **_/bin_** directory of the target machine
 
-Run ***chmod 755 fake_ps***
+Run ***chmod 755 fake_ps*** to set permissions.
 
 Run ***mkdir /bin/orig*** to create a directory named **_orig_** in the **_/bin_** directory.
 
-Place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
+Run **_mv /bin/ps /bin/orig_** to place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
 
-Rename the ***fake_ps*** file to **_ps_**
+Run ***mv fake_ps ps*** to rename the ***fake_ps*** file to **_ps_**
 
 ### Setting Up and Running Attacker
 
