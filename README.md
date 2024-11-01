@@ -48,13 +48,16 @@ to attacker machine every 10 seconds (can edit this amount of time in **_config.
 
 #### ls
 
-In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine at **_/usr/bin/ls_custom_**.
+In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine in the **_/bin/_** directory.
 
-Give **_ls_custom_** executing privileges by running: **_chmod 755 /usr/bin/ls_custom_**
+Update **_ls_custom_** permissions by running: **_chmod 755 /bin/ls_custom_**
 
-Run **_echo "alias ls='/usr/bin/ls_custom'" >> /etc/profile_** followed by **_source /etc/profile_** to reload the shell and apply these changes. The **_source_** call isn't necessary as the next time there is a login to the shell, the updated code will run. This just allows you to test the code without having to log out and back in. 
+If not already created, run ***mkdir /bin/orig*** to create a directory named **_orig_** in the **_/bin_** directory.
 
-Now, whenever **_ls_** is run, the wrapper should run instead of the original binary.
+Run **_mv /bin/ls /bin/orig_** to place the original **_ls_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
+
+Run ***mv ls_custom ls*** to rename the ***ls_custom*** file to **_ls_**
+
 
 #### ps
 
@@ -62,7 +65,7 @@ Place the ***fake_ps*** file found in the evasion_and_detection folder into the 
 
 Run ***chmod 755 fake_ps*** to set permissions.
 
-Run ***mkdir /bin/orig*** to create a directory named **_orig_** in the **_/bin_** directory.
+If not already created, run ***mkdir /bin/orig*** to create a directory named **_orig_** in the **_/bin_** directory.
 
 Run **_mv /bin/ps /bin/orig_** to place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
 
@@ -80,6 +83,4 @@ Once connection is made, we should be running as the root user and we are initia
 
 ### BONUS: Detection Script
 
-In the evasion_and_detection folder, there is an **_detect.py_** file. To run it, put it into the target machine and execute it using the following command: **_python3 detect.py_**.
-
-There is a customization option within the python file, which is what files to look in when searching for aliases. We've included several start-up files to search within, one of which actually contains the alias we used to execute the ls wrapper. However, the list of files can easily be modified to better suit your needs.
+In the evasion_and_detection folder, there is an **_detect.py_** file. To run it, put it into the target machine and execute it using the following command: **_python3 detect.py file_to_check_**. The argument is to specify the name of the file you want to check for the malicious string **_backdoor_**, which in this case is **_/bin/ls_** and **_/bin/ps_**.
