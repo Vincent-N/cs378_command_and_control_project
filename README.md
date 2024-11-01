@@ -44,7 +44,7 @@ Scroll to the bottom (after all #) and add the line: **_@reboot python3 /bin/bac
 Reboot the system (**_sudo reboot_**), cronjob should run every restart. Backdoor should call out
 to attacker machine every 10 seconds (can edit this amount of time in **_config.py_**).
 
-### Evading Detection
+### Setting Up Detection Evasion
 
 #### ls
 
