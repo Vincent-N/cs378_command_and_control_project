@@ -48,7 +48,7 @@ to attacker machine every 10 seconds (can edit this amount of time in **_config.
 
 #### ls
 
-In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine at **_/usr/bin/ls_custom__**.
+In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine at **_/usr/bin/ls_custom_**.
 
 Give **_ls_custom_** executing privileges by running: **_chmod 755 /usr/bin/ls_custom_**
 
@@ -59,6 +59,8 @@ Now, whenever **_ls_** is run, the wrapper should run instead of the original bi
 #### ps
 
 Place the ***fake_ps*** file found in the evasion_and_detection folder into the **_/bin_** directory of the target machine
+
+Run ***chmod 755 fake_ps***
 
 Create a directory named **_orig_** in the **_/bin_** directory. 
 
