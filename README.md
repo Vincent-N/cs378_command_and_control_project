@@ -1,10 +1,5 @@
 # C S 378 - Command and Control Project (Donald and Vincent)
 
-Currently implements:
-* Remote shell access (However, commands don't persist across different calls)
-* Authentification (symmetric key encryption)
-* Persistence (cronjob that activates every reboot)
-
 ## Set Up
 
 ### Configure IP (IMPORTANT)
@@ -84,14 +79,3 @@ Rename the ***fake_ps*** file to **_ps_**
 In the evasion_and_detection folder, there is an **_detect.py_** file. To run it, put it into the target machine and execute it using the following command: **_python3 detect.py_**.
 
 There is a customization option within the python file, which is what files to look in when searching for aliases. We've included several start-up files to search within, one of which actually contains the alias we used to execute the ls wrapper. However, the list of files can easily be modified to better suit your needs.
-
-## Still Need to Work On:
-
-* Evading detection
-* Write-up
-* Need to fix the prompt format being sent over
-* Maybe figure out how to fix remote shell (or maybe ask Dr. Hintz if what we have is okay)
-* Detection script (extra credit, but maybe not that hard?)
-* Sometimes connection breaks in certain situations, fix these bugs
-  * like when running **_cat /bin/ls_** Looks like something is wrong with trying to encode/decode the characters in the file
-
