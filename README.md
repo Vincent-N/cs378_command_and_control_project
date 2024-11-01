@@ -62,7 +62,7 @@ Place the ***fake_ps*** file found in the evasion_and_detection folder into the 
 
 Run ***chmod 755 fake_ps***
 
-Create a directory named **_orig_** in the **_/bin_** directory by running ***mkdir /bin/orig***. 
+Run ***mkdir /bin/orig*** to create a directory named **_orig_** in the **_/bin_** directory.
 
 Place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
 
