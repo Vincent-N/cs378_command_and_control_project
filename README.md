@@ -59,6 +59,8 @@ Once connection is made, we should be running as the root user and are in root's
 
 ### Evading Detection
 
+#### ls
+
 In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine at **_/usr/bin/ls_custom__**.
 
 Give **_ls_custom_** executing privileges by running: **_chmod 755 /usr/bin/ls_custom_**
@@ -66,6 +68,16 @@ Give **_ls_custom_** executing privileges by running: **_chmod 755 /usr/bin/ls_c
 Run **_echo "alias ls='/usr/bin/ls_custom'" >> /etc/profile_** followed by **_source /etc/profile_** to reload the shell and apply these changes. The **_source_** call isn't necessary as the next time there is a login to the shell, the updated code will run. This just allows you to test the code without having to log out and back in. 
 
 Now, whenever **_ls_** is run, the wrapper should run instead of the original binary.
+
+#### ps
+
+Place the ***fake_ps*** file found in the evasion_and_detection folder into the **_/bin_** directory of the target machine
+
+Create a directory named **_orig_** in the **_/bin_** directory. 
+
+Place the original **_ps_** file from the **_/bin_** directory into the **_/bin/orig_** directory.
+
+Rename the ***fake_ps*** file to **_ps_**
 
 ### BONUS: Detection Script
 
