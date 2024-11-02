@@ -4,7 +4,7 @@
 
 ### Configure IP (IMPORTANT)
 
-Edit the IP addresses in the **_config.py_** file to match the IP address of the attacker and target machine. Can also set which port number the attacker machine will use to listen.
+Edit the IP addresses in the **_config.py_** file to match the IP address of the attacker machine. Can also set which port number the attacker machine will use to listen.
 
 ### Creating executables (IMPORTANT)
 
@@ -48,7 +48,7 @@ to attacker machine every 10 seconds (can edit this amount of time in **_config.
 
 #### ls
 
-In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine in the **_/bin/_** directory.
+In the evasion_and_detection folder, there is an **_ls_custom_** file. Take that and put it into the target machine in the **_/bin_** directory.
 
 Update **_ls_custom_** permissions by running: **_chmod 755 /bin/ls_custom_**
 
